@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Estado</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #667eea;
+      outline: none;
+      box-shadow: 0 0 5px rgba(102,126,234,0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #667eea;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #5563c1;
+    }
+
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+    
+
+  <div class="form-container">
+    <h2>Reporte de Estado</h2>
+
+    <form name="contact" method="POST" data-netlify="true">
+      
+      <!-- Necesario para Netlify -->
+      <input type="hidden" name="form-name" value="contact">
+
+      <label>Nombre</label>
+      <input type="text" name="nombre" required>
+
+      <label>Estado</label>
+      <select name="estado" required>
+        <option value="">Seleccione una opción</option>
+        <option value="Estoy bien">Estoy bien</option>
+        <option value="Necesito asistencia para mi">Necesito asistencia para mí</option>
+        <option value="Necesito asistencia para mis compañeros">Necesito asistencia para mis compañeros</option>
+      </select>
+
+      <button type="submit">Enviar</button>
+
+    </form>
+  </div>
+
+</body>
+</html>
