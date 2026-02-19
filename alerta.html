@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Alerta de Sismo</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style-admin.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="index.html">Inicio de sesion</a>
+        <a class="nav-link" href="alerta.html">Crear alerta</a>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">🚨 Crear Nueva Alerta de Sismo</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form id="form-alerta">
+
+                <div class="form-group">
+                    <label>Ubicación del Sismo</label>
+                    <input type="text" class="form-control" id="ubicacion" placeholder="Ej: Ciudad de Guatemala">
+                </div>
+
+                <div class="form-group">
+                    <label>¿Que tan sensible fue?</label>
+                    <select class="form-control" id="prioridad">
+                        <option value="Baja">Baja</option>
+                        <option value="Media">Media</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Crítica">Crítica</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Mensaje para los Empleados</label>
+                    <select class="form-control" id="sugerencia">
+                        <option value="Confirmar_Estado">¿Como te encuentras?</option>
+                        <option value="Evacuar">Evacuar</option>
+                        
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-danger btn-block">
+                    Activar Alerta
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+<footer class="text-center mt-5 p-3 bg-dark text-white">
+    Pagina creada por Josue Pacheco
+</footer>
+
+
+<script>
+document.getElementById("form-alerta").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let ubicacion = document.getElementById("ubicacion").value;
+    let magnitud = document.getElementById("magnitud").value;
+    let mensaje = document.getElementById("mensaje").value;
+
+    fetch("/enviar-alerta", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            ubicacion: ubicacion,
+            magnitud: magnitud,
+            mensaje: mensaje
+        })
+    })
+    .then(res => res.json())
+    .then(data => alert(data.mensaje))
+    .catch(err => alert("Error enviando correos"));
+});
+</script>
+</body>
+</html>

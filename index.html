@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="login-card shadow-lg">
+        <h3 class="text-center mb-4">Panel de Emergencias</h3>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" class="form-control" id="usuario" placeholder="Ingrese usuario">
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Ingrese contraseña">
+            </div>
+
+            <button type="submit" class="btn btn-danger btn-block">
+                Iniciar Sesión
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+<footer>
+    Pagina creada por Josue Pacheco
+</footer>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let user = document.getElementById("usuario").value;
+    let pass = document.getElementById("password").value;
+
+    // Usuario de prueba
+    if(user === "admin" && pass === "1234"){
+        window.location.href = "pagina-admin.html";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+});
+</script>
+
+</body>
+</html>
