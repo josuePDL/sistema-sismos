@@ -1,0 +1,26 @@
+body { background-color: #f8f9fa; font-family: sans-serif; }
+.card { border-radius: 15px; }
+.badge { padding: 8px 12px; border-radius: 8px; font-size: 0.75rem; }
+.rounded-4 { border-radius: 1rem !important; }
+.table thead th { border-top: none; font-size: 0.8rem; color: #6c757d; }
+
+.card {
+    border-radius: 12px;
+}
+
+.table thead th {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+}
+
+.badge-bien { background-color: #198754; }
+.badge-mal { background-color: #ffc107; color: #000; }
+.badge-ayuda { background-color: #dc3545; }
+
+.navbar-brand {
+    font-weight: 700;
+    color: #dc3545 !important;
+}
+

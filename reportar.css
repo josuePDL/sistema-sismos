@@ -1,0 +1,23 @@
+body {
+    background-color: #f0f2f5;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+.report-card {
+    max-width: 450px;
+    width: 90%;
+    border-radius: 25px;
+    border: none;
+}
+.btn-lg {
+    border-radius: 15px;
+    border: none;
+    transition: transform 0.1s ease;
+}
+.btn-lg:active {
+    transform: scale(0.95);
+}
